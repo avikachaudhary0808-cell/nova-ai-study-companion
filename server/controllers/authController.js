@@ -74,7 +74,7 @@ const loginUser = asyncHandler(async (req, res) => {
 })
 
 const getMe = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id).select('-password')
+  const user = await User.findById(req.user.id).select('-password')
   if (user) {
     res.json({
       _id: user._id,
@@ -93,7 +93,7 @@ const logout = asyncHandler(async (req, res) => {
 })
 
 const updateProfile = asyncHandler(async (req, res) => {
-  const user = await User.findById(req.user._id)
+  const user = await User.findById(req.user.id)
   if (user) {
     if (req.body.email && req.body.email !== user.email) {
       const emailExists = await User.findOne({ email: req.body.email })
