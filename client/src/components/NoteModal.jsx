@@ -223,4 +223,4 @@ function NoteModal({ isOpen, onClose, note, onSaved }) {
   )
 }
 
-export default NoteModal
+export default NoteModal;
